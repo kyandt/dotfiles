@@ -49,7 +49,6 @@ chpwd() ls
 autoload -U compinit
 
 plugins=(
-	git
 )
 
 for plugin ($plugins); do
