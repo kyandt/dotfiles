@@ -1,3 +1,9 @@
+# Load Antigen
+source ~/dotfiles/zsh/plugins/oh-my-zsh/custom/plugins/antigen/antigen.zsh
+# Load Antigen configurations
+antigen init ~/dotfiles/zsh/plugins/oh-my-zsh/custom/plugins/antigen/antigenrc
+
+
 # Vars
 	HISTFILE=~/.zsh_history
 	SAVEHIST=1000 
@@ -9,7 +15,8 @@
 # Aliases
 	alias v="vim -p"
 	mkdir -p /tmp/log
-	
+	eval $(thefuck --alias)
+	alias vi="vim"
 	# This is currently causing problems (fails when you run it anywhere that isn't a git project's root directory)
 	# alias vs="v `git status --porcelain | sed -ne 's/^ M //p'`"
 
@@ -44,17 +51,15 @@ chpwd() ls
 # Edit the array below, or relocate it to ~/.zshrc before anything is sourced
 # For help create an issue at github.com/parth/dotfiles
 
-autoload -U compinit
+autoload -U compinit && compinit
 
-plugins=(
-	docker
-)
+#plugins=(git)
 
-for plugin ($plugins); do
-    fpath=(~/dotfiles/zsh/plugins/oh-my-zsh/plugins/$plugin $fpath)
-done
+#for plugin ($plugins); do
+#    fpath=(~/dotfiles/zsh/plugins/oh-my-zsh/plugins/$plugin $fpath)
+#done
 
-compinit
+#compinit
 
 source ~/dotfiles/zsh/plugins/oh-my-zsh/lib/history.zsh
 source ~/dotfiles/zsh/plugins/oh-my-zsh/lib/key-bindings.zsh
@@ -80,3 +85,5 @@ fi
 
 source ~/dotfiles/zsh/prompt.sh
 export PATH=$PATH:$HOME/dotfiles/utils
+export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm

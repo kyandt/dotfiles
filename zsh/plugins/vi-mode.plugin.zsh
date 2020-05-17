@@ -25,7 +25,7 @@ bindkey '^N' down-history
 
 # allow ctrl-h, ctrl-w, ctrl-? for char and word deletion (standard behaviour)
 bindkey '^?' backward-delete-char
-bindkey '^h' backward-delete-char
+#bindkey '^h' backward-delete-char
 bindkey '^w' backward-kill-word
 
 # allow ctrl-r to perform backward search in history
