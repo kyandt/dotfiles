@@ -1,8 +1,3 @@
-# Load Antigen
-source ~/dotfiles/zsh/plugins/oh-my-zsh/custom/plugins/antigen/antigen.zsh
-# Load Antigen configurations
-antigen init ~/dotfiles/zsh/plugins/oh-my-zsh/custom/plugins/antigen/antigenrc
-
 
 # Vars
 	HISTFILE=~/.zsh_history
@@ -51,15 +46,22 @@ chpwd() ls
 # Edit the array below, or relocate it to ~/.zshrc before anything is sourced
 # For help create an issue at github.com/parth/dotfiles
 
-autoload -U compinit && compinit
+autoload -U compinit
 
-#plugins=(git)
+plugins=(
+	git
+)
 
-#for plugin ($plugins); do
-#    fpath=(~/dotfiles/zsh/plugins/oh-my-zsh/plugins/$plugin $fpath)
-#done
+for plugin ($plugins); do
+    fpath=(~/dotfiles/zsh/plugins/oh-my-zsh/plugins/$plugin $fpath)
+done
 
-#compinit
+compinit
+
+# Load Antigen
+source ~/dotfiles/zsh/plugins/antigen/antigen.zsh
+# Load Antigen configurations
+antigen init ~/dotfiles/zsh/plugins/antigen/antigenrc
 
 source ~/dotfiles/zsh/plugins/oh-my-zsh/lib/history.zsh
 source ~/dotfiles/zsh/plugins/oh-my-zsh/lib/key-bindings.zsh
